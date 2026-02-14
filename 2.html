@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Be My Valentine 💖</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #ffe6f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #ff4081;
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 20px;
+            margin: 15px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #yesBtn {
+            background-color: #28a745; /* Green */
+            color: white;
+        }
+
+        #noBtn {
+            background-color: #dc3545; /* Red */
+            color: white;
+        }
+
+        #gifContainer {
+            display: none;
+            margin-top: 20px;
+        }
+
+        img {
+            width: 250px;
+            margin-top: 15px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1 id="question">Will You Be My Valentine ritu? 💖</h1>
+
+    <button type="button" id="yesBtn">Yes ❤️</button>
+    <button type="button" id="noBtn">No 😢</button>
+
+    <div id="gifContainer">
+        <h2>I hate you  🫂🥺😭🌷 😍💘</h2>
+        <img src="https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif">
+    </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const gifContainer = document.getElementById("gifContainer");
+    const question = document.getElementById("question");
+
+    let size = 20;
+    let clickCount = 0;
+
+    const messages = [
+        "Are you sure? 🥺",
+        "Think again… I bring chocolates 🍫",
+        "I’ll share my fries 🍟",
+        "I’ll never ignore your texts 📱",
+        "I’ll send good morning texts 🌞",
+        "I’ll carry your bags forever 👜",
+        "I’ll let you win arguments 😌",
+        "I’ll bring you food at 2AM 🍕",
+        "You’re my favorite human 🥹",
+        "Last chance before I get dramatic 😭"
+    ];
+
+    noBtn.addEventListener("click", function() {
+
+        size += 10;
+        yesBtn.style.fontSize = size + "px";
+        yesBtn.style.padding = (size/2) + "px " + size + "px";
+
+        if (clickCount < messages.length) {
+            question.innerText = messages[clickCount];
+        } else {
+            question.innerText = "Okay now you're just testing my love 😌💘 (Still waiting for YES)";
+        }
+
+        clickCount++;
+    });
+
+    yesBtn.addEventListener("click", function() {
+
+        question.innerText = "Best decision ever 😍💖";
+        yesBtn.style.display = "none";
+        noBtn.style.display = "none";
+        gifContainer.style.display = "block";
+    });
+
+});
+</script>
+
+</body>
+</html>
